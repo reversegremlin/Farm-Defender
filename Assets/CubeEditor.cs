@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
+[SelectionBase]
 
 
 public class CubeEditor : MonoBehaviour
@@ -23,6 +24,6 @@ public class CubeEditor : MonoBehaviour
 
         transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
 
-        textMesh.text = snapPos.x + "," + snapPos.z;
+        textMesh.text = snapPos.x / gridSize + "," + snapPos.z / gridSize;
     }
 }
