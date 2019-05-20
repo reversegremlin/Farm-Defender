@@ -5,10 +5,16 @@ using UnityEngine;
 [ExecuteInEditMode]
 
 
-public class EditorSnap : MonoBehaviour
+public class CubeEditor : MonoBehaviour
 {
     [SerializeField] [Range(1f, 20f)] float gridSize = 10f;
 
+    TextMesh textMesh;
+
+    private void Start()
+    {
+        textMesh = GetComponentInChildren<TextMesh>();
+    }
     void Update()
     {
         Vector3 snapPos;
@@ -17,5 +23,6 @@ public class EditorSnap : MonoBehaviour
 
         transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
 
+        textMesh.text = snapPos.x + "," + snapPos.z;
     }
 }
