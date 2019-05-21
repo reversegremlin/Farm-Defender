@@ -24,6 +24,7 @@ public class EnemyMover : MonoBehaviour
             cube.transform.position.y + 6f,
             cube.transform.position.z
             );
+
             gameObject.transform.position = pos;
             yield return new WaitForSeconds(dwellTime);
         }
