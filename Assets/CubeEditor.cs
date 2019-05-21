@@ -10,14 +10,11 @@ using UnityEngine;
 public class CubeEditor : MonoBehaviour
 {
 
-    TextMesh textMesh;
-    Vector3 snapPos;
     Waypoint waypoint;
 
     private void Start()
     {
         waypoint = GetComponent<Waypoint>();
-        textMesh = GetComponentInChildren<TextMesh>();
     }
     void Update()
     {
@@ -28,15 +25,18 @@ public class CubeEditor : MonoBehaviour
     private void SnapToGrid()
     {
         int gridSize = waypoint.GetGridSize();
-        snapPos.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
-        snapPos.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
-        transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
+
+        transform.position = new Vector3(
+            waypoint.GetGridPos().x * gridSize, 
+            0f, 
+            waypoint.GetGridPos().y * gridSize);
     }
 
     private void UpdateLabel()
     {
         int gridSize = waypoint.GetGridSize();
-        string labelText = snapPos.x / gridSize + "," + snapPos.z / gridSize;
+        string labelText = waypoint.GetGridPos().x + "," + waypoint.GetGridPos().y;
+        TextMesh textMesh = GetComponentInChildren<TextMesh>();
         textMesh.text = labelText;
         gameObject.name = "cube " + labelText;
     }
