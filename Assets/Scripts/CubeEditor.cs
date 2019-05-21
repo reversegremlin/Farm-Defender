@@ -8,7 +8,9 @@ using UnityEngine;
 
 
 public class CubeEditor : MonoBehaviour
+
 {
+    [SerializeField] Waypoint startWaypoint, endWaypoint;
 
     Waypoint waypoint;
 
@@ -16,6 +18,7 @@ public class CubeEditor : MonoBehaviour
     {
         waypoint = GetComponent<Waypoint>();
     }
+
     void Update()
     {
         SnapToGrid();
