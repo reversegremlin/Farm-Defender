@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
@@ -78,7 +77,11 @@ public class Pathfinder : MonoBehaviour
     private void QueueNewNeighbors(Vector2Int neighborCoordinates)
     {
         Waypoint neighbor = grid[neighborCoordinates];
-        if (!neighbor.isExplored)
+        if (neighbor.isExplored || queue.Contains(neighbor))
+        {
+            //do nothing
+        }
+        else 
         {
             neighbor.setTopColor(Color.blue);  // move later
             queue.Enqueue(neighbor);
