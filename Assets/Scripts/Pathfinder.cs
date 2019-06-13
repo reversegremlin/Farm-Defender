@@ -35,8 +35,7 @@ public class Pathfinder : MonoBehaviour
         foreach (Vector2Int direction in directions)
         {
             Vector2Int neighbor = startWaypoint.GetGridPos() + direction;
-
-            print("Exploring neighbor: " + neighbor);
+            grid[neighbor].setTopColor(Color.blue);
         }
     }
 
