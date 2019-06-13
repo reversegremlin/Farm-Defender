@@ -8,7 +8,6 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] List<Block> enemyPath;
     [SerializeField] float dwellTime = 1.0f;
 
-
     // Start is called before the first frame update
     void Start()
     {

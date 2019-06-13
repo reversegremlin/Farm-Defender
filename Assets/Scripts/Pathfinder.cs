@@ -30,8 +30,6 @@ public class Pathfinder : MonoBehaviour
         LoadBlocks();
         ColorSourceAndDestination();
         FindPath();
-       // ExploreNeighbors();
-
     }
 
     private void FindPath()
@@ -86,7 +84,8 @@ public class Pathfinder : MonoBehaviour
         {
             neighbor.setTopColor(Color.blue);  // move later
             queue.Enqueue(neighbor);
-            print("Queueing " + neighbor);
+            neighbor.exploredFrom = searchOrigin;
+            print("Queueing " + neighbor + " exploredFrom: " + neighbor.exploredFrom);
         }
     }
 
