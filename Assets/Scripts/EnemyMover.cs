@@ -29,10 +29,4 @@ public class EnemyMover : MonoBehaviour
             yield return new WaitForSeconds(dwellTime);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

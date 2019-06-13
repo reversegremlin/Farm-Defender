@@ -38,10 +38,4 @@ public class Pathfinder : MonoBehaviour
         }
         print("Loaded " + grid.Count + " blocks");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
