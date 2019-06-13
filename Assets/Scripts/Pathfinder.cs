@@ -13,6 +13,7 @@ public class Pathfinder : MonoBehaviour
     Queue<Waypoint> queue = new Queue<Waypoint>();
 
     bool isRunning = true;
+    Waypoint searchOrigin;
 
     //directions for pathfinding
     Vector2Int[] directions =
@@ -39,16 +40,16 @@ public class Pathfinder : MonoBehaviour
 
         while(queue.Count > 0 && isRunning)
         {
-            var searchOrigin = queue.Dequeue();
+            searchOrigin = queue.Dequeue();
             searchOrigin.isExplored = true;
             print("Searching from: " + searchOrigin);
-            CheckIfEndFound(searchOrigin);
-            ExploreNeighbors(searchOrigin);
+            CheckIfEndFound();
+            ExploreNeighbors();
         }
         print("finished pathfinding?");  //not really, need to actually work out path.
     }
 
-    private void CheckIfEndFound(Waypoint searchOrigin)
+    private void CheckIfEndFound()
     {
         if (searchOrigin == endWaypoint)
         {
@@ -57,12 +58,12 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    private void ExploreNeighbors(Waypoint from)
+    private void ExploreNeighbors()
     {
         if (!isRunning) { return; }
         foreach (Vector2Int direction in directions)
         {
-            Vector2Int neighborCoordinates = from.GetGridPos() + direction;
+            Vector2Int neighborCoordinates = searchOrigin.GetGridPos() + direction;
             try
             {
                 QueueNewNeighbors(neighborCoordinates);
