@@ -82,7 +82,7 @@ public class Pathfinder : MonoBehaviour
         }
         else 
         {
-            neighbor.setTopColor(Color.blue);  // move later
+         //   neighbor.setTopColor(Color.blue);  // move later
             queue.Enqueue(neighbor);
             neighbor.exploredFrom = searchOrigin;
             print("Queueing " + neighbor + " exploredFrom: " + neighbor.exploredFrom);
@@ -101,13 +101,11 @@ public class Pathfinder : MonoBehaviour
         foreach (Waypoint waypoint in waypoints)
         {
             if (grid.ContainsKey(waypoint.GetGridPos()))
-            {
-                Debug.LogWarning("Skipping overlapping Block " + waypoint);
-            } else
+            { }
+            else
             {
                 grid.Add(waypoint.GetGridPos(), waypoint);
             }
         }
-        print("Loaded " + grid.Count + " blocks");
     }
 }
