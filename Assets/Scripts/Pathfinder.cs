@@ -15,7 +15,7 @@ public class Pathfinder : MonoBehaviour
     bool isRunning = true;
     Waypoint searchOrigin;
 
-    public List<Waypoint> path = new List<Waypoint>();
+    List<Waypoint> path = new List<Waypoint>();
 
 
     //directions for pathfinding
@@ -27,15 +27,13 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.left
     };
 
-    // Start is called before the first frame update
-    void Start()
+    public List<Waypoint> GetPath()
     {
         LoadBlocks();
         ColorSourceAndDestination();
         BreadthFirstSearch();
         CreatePath();
-        ColorPath();
-
+        return path;
     }
 
     private void ColorPath()
@@ -60,8 +58,6 @@ public class Pathfinder : MonoBehaviour
 
         path.Add(startWaypoint);
         path.Reverse();
-
-        print(path);
     }
 
     private void BreadthFirstSearch()
@@ -91,12 +87,9 @@ public class Pathfinder : MonoBehaviour
         foreach (Vector2Int direction in directions)
         {
             Vector2Int neighborCoordinates = searchOrigin.GetGridPos() + direction;
-            try
+            if (grid.ContainsKey(neighborCoordinates))
             {
                 QueueNewNeighbors(neighborCoordinates);
-            }
-            catch
-            {
 
             }
         }

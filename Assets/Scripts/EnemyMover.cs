@@ -5,27 +5,28 @@ using UnityEngine;
 public class EnemyMover : MonoBehaviour
 {
 
-    //[SerializeField] List<Block> enemyPath;
-    //[SerializeField] float dwellTime = 1.0f;
+    [SerializeField] float dwellTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(FollowPath());
+        Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
+        var path = pathfinder.GetPath();
+        StartCoroutine(FollowPath(path));
     }
 
-    //IEnumerator FollowPath()
-    //{
-    //    foreach (Block cube in enemyPath)
-    //    {
-    //        Vector3 pos = new Vector3(
-    //        cube.transform.position.x + 15f,
-    //        cube.transform.position.y + 6f,
-    //        cube.transform.position.z
-    //        );
+    IEnumerator FollowPath(List<Waypoint> path)
+    {
+        foreach (Waypoint waypoint in path)
+        {
+            Vector3 pos = new Vector3(
+            waypoint.transform.position.x + 15f,
+            waypoint.transform.position.y + 6f,
+            waypoint.transform.position.z
+            );
 
-    //        gameObject.transform.position = pos;
-    //        yield return new WaitForSeconds(dwellTime);
-    //    }
-    //}
+            transform.position = pos;
+            yield return new WaitForSeconds(dwellTime);
+        }
+    }
 }
