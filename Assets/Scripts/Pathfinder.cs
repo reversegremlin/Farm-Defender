@@ -15,6 +15,9 @@ public class Pathfinder : MonoBehaviour
     bool isRunning = true;
     Waypoint searchOrigin;
 
+    public List<Waypoint> path = new List<Waypoint>();
+
+
     //directions for pathfinding
     Vector2Int[] directions =
     {
@@ -29,10 +32,39 @@ public class Pathfinder : MonoBehaviour
     {
         LoadBlocks();
         ColorSourceAndDestination();
-        FindPath();
+        BreadthFirstSearch();
+        CreatePath();
+        ColorPath();
+
     }
 
-    private void FindPath()
+    private void ColorPath()
+    {
+        foreach (Waypoint waypoint in path)
+        {
+            waypoint.setTopColor(Color.blue);
+        }
+        ColorSourceAndDestination();
+    }
+
+    private void CreatePath()
+    {
+        path.Add(endWaypoint);
+        Waypoint previousWaypoint = endWaypoint.exploredFrom;
+
+        while (previousWaypoint != startWaypoint)
+        {
+            path.Add(previousWaypoint);
+            previousWaypoint = previousWaypoint.exploredFrom;
+        }
+
+        path.Add(startWaypoint);
+        path.Reverse();
+
+        print(path);
+    }
+
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(startWaypoint);
 
@@ -40,18 +72,15 @@ public class Pathfinder : MonoBehaviour
         {
             searchOrigin = queue.Dequeue();
             searchOrigin.isExplored = true;
-            print("Searching from: " + searchOrigin);
             CheckIfEndFound();
             ExploreNeighbors();
         }
-        print("finished pathfinding?");  //not really, need to actually work out path.
     }
 
     private void CheckIfEndFound()
     {
         if (searchOrigin == endWaypoint)
         {
-            print("Searching from End Node, stopping.");
             isRunning = false;
         }
     }
@@ -68,7 +97,7 @@ public class Pathfinder : MonoBehaviour
             }
             catch
             {
-                print("skipping non-existing neighbor");
+
             }
         }
     }
