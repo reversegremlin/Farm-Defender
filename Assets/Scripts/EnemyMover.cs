@@ -17,15 +17,17 @@ public class EnemyMover : MonoBehaviour
 
     IEnumerator FollowPath(List<Waypoint> path)
     {
+        //known bug, if there is no path, bad things happen. 
+
         foreach (Waypoint waypoint in path)
         {
-            Vector3 pos = new Vector3(
-            waypoint.transform.position.x + 15f,
-            waypoint.transform.position.y + 6f,
-            waypoint.transform.position.z
-            );
+            //Vector3 pos = new Vector3(
+            //waypoint.transform.position.x,
+            //waypoint.transform.position.y,
+            //waypoint.transform.position.z
+            //);
 
-            transform.position = pos;
+            transform.position = waypoint.transform.position;
             yield return new WaitForSeconds(dwellTime);
         }
     }
