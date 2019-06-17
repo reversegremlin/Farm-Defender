@@ -28,7 +28,7 @@ public class EnemyCollider : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
         --hits;
-        print("enemy hit points remaining: " + hits);
+       // print("enemy hit points remaining: " + hits);
         if (hits <= 0)
         // todo: consider hit effect
         {
@@ -43,4 +43,5 @@ public class EnemyCollider : MonoBehaviour
         fx.transform.parent = parent;
         Destroy(gameObject);
     }
+
 }
