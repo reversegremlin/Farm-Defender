@@ -6877,7 +6877,7 @@ MonoBehaviour:
   deathFX: {fileID: 2172991491274129060, guid: 8edfb2026c997ed45bbe148c105ac920, type: 3}
   parent: {fileID: 1201851027}
   scorePerHit: 100
-  hits: 8
+  hits: 20
 --- !u!54 &1231436425
 Rigidbody:
   m_ObjectHideFlags: 0
