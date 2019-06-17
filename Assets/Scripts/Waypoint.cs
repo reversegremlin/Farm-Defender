@@ -7,6 +7,7 @@ public class Waypoint : MonoBehaviour
     //ok, since this is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
 
     Vector2Int gridPos;
     const int gridSize = 10;
@@ -33,7 +34,10 @@ public class Waypoint : MonoBehaviour
     void OnMouseOver()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject: " + gameObject.name);
+        if (Input.GetMouseButtonDown(0)) //left click
+        {
+            Debug.Log("Mouse clicked GameObject: " + gameObject.name);
+        }
     }
 
     //void OnMouseExit()

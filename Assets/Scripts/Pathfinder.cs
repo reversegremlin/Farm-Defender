@@ -57,6 +57,8 @@ public class Pathfinder : MonoBehaviour
     private void CreatePath()
     {
         path.Add(endWaypoint);
+        endWaypoint.isPlaceable = false;
+
         Waypoint previousWaypoint = endWaypoint.exploredFrom;
 
         while (previousWaypoint != startWaypoint)
