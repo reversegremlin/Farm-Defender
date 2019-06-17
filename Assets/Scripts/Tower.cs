@@ -6,32 +6,53 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
 
+    //tower parameters
     [SerializeField] Transform objectToPan;
-    [SerializeField] Transform targetEnemy;
     [SerializeField] float attackRange = 10;
     [SerializeField] ParticleSystem projectileParticle;
 
- 
+    //tower state
+
+    Transform targetEnemy;
+
     void Update()
     {
+        SetTargetEnemy();
         if (targetEnemy) {
-        //    GameObject actualEnemy = targetEnemy.gameObject;
-        //    Collider m_Collider;
-        //    Vector3 m_Center;
-            //Fetch the Collider from the GameObject
-       //     m_Collider = actualEnemy.GetComponent<Collider>();
-            //Fetch the center of the Collider volume
-       //     m_Center = m_Collider.bounds.center;
-            //Output this data into the console
-       //     objectToPan.LookAt(m_Center);
             objectToPan.LookAt(targetEnemy.position);
-            //transform.LookAt(target.renderer.bounds.center);
-
             FireAtEnemy();
         } else
         {
             Shoot(false);
         }
+    }
+
+    private void SetTargetEnemy()
+    {
+        var enemies = FindObjectsOfType<EnemyCollider>();
+        if (enemies.Length == 0) { return; }
+
+        Transform closestEnemy = enemies[0].transform;
+
+        foreach (EnemyCollider enemy in enemies)
+        {
+            closestEnemy = GetClosest(closestEnemy, enemy.transform);
+        }
+        targetEnemy = closestEnemy;
+
+    }
+
+    private Transform GetClosest(Transform transformA, Transform transformB)
+    {
+        var distanceToA = Vector3.Distance(transform.position, transformA.position);
+        var distanceToB = Vector3.Distance(transform.position, transformB.position);
+
+        if (distanceToA < distanceToB)
+        {
+            return transformA;
+        }
+
+        return transformB;
     }
 
     private void FireAtEnemy()

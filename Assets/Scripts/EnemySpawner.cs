@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    [Range(0.1f, 120f)]
     [SerializeField] float secondsBetweenSpawns = 3.0f;
     [SerializeField] EnemyMover enemyToSpawn;
 
@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 	{
         while (true)
 		{
-			print("spawining...");
+            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 			yield return new WaitForSeconds(secondsBetweenSpawns);
 		}
 	}
