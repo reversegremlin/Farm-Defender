@@ -28,6 +28,7 @@ public class EnemyCollider : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
         --hits;
+        print("enemy hit points remaining: " + hits);
         if (hits <= 0)
         // todo: consider hit effect
         {

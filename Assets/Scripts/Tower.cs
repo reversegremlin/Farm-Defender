@@ -15,14 +15,23 @@ public class Tower : MonoBehaviour
     void Update()
     {
         if (targetEnemy) {
-            objectToPan.LookAt(targetEnemy);
+        //    GameObject actualEnemy = targetEnemy.gameObject;
+        //    Collider m_Collider;
+        //    Vector3 m_Center;
+            //Fetch the Collider from the GameObject
+       //     m_Collider = actualEnemy.GetComponent<Collider>();
+            //Fetch the center of the Collider volume
+       //     m_Center = m_Collider.bounds.center;
+            //Output this data into the console
+       //     objectToPan.LookAt(m_Center);
+            objectToPan.LookAt(targetEnemy.position);
+            //transform.LookAt(target.renderer.bounds.center);
+
             FireAtEnemy();
         } else
         {
             Shoot(false);
         }
-
-
     }
 
     private void FireAtEnemy()
