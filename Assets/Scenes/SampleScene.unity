@@ -6760,12 +6760,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1228497257}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1231436420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6111877632662725126, guid: 666ed30ea41194b28a922b4ca1fd3ab9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1332623213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1231436421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6114463365963625432, guid: 666ed30ea41194b28a922b4ca1fd3ab9,
     type: 3}
   m_PrefabInstance: {fileID: 1332623213}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1231436424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231436420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bab2d20c7ad874e8b07528021f364b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathFX: {fileID: 0}
+  parent: {fileID: 0}
+  scorePerHit: 100
+  hits: 10
 --- !u!1001 &1240026747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11436,6 +11458,26 @@ PrefabInstance:
       propertyPath: targetEnemy
       value: 
       objectReference: {fileID: 1231436421}
+    - target: {fileID: 4506261350008357115, guid: 5bcb3c1c356c8e7428ca8d2b3f0b2d75,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506261350008357115, guid: 5bcb3c1c356c8e7428ca8d2b3f0b2d75,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506261350008357115, guid: 5bcb3c1c356c8e7428ca8d2b3f0b2d75,
+        type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506261350008357115, guid: 5bcb3c1c356c8e7428ca8d2b3f0b2d75,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bcb3c1c356c8e7428ca8d2b3f0b2d75, type: 3}
 --- !u!1 &5813093362035943969
