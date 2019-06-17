@@ -27,11 +27,9 @@ public class EnemyCollider : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        print("Hits: " + hits);
-
         --hits;
-        if (hits <= 1)
-        //todo: consider hit effect
+        if (hits <= 0)
+        // todo: consider hit effect
         {
             KillEnemy();
         }

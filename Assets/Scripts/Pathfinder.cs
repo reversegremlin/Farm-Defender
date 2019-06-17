@@ -104,10 +104,8 @@ public class Pathfinder : MonoBehaviour
         }
         else 
         {
-         //   neighbor.setTopColor(Color.blue);  // move later
             queue.Enqueue(neighbor);
             neighbor.exploredFrom = searchOrigin;
-            print("Queueing " + neighbor + " exploredFrom: " + neighbor.exploredFrom);
         }
     }
 
