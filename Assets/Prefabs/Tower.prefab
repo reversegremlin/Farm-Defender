@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 5333972600133526614}
-  targetEnemy: {fileID: 0}
   attackRange: 40
   projectileParticle: {fileID: 4506261350008357115}
 --- !u!1001 &5334656216589832695
@@ -135,6 +134,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower_A_Top
       objectReference: {fileID: 0}
+    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: CollisionModule.maxKillSpeed
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -178,21 +197,6 @@ PrefabInstance:
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
-        type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}

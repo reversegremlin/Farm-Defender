@@ -6290,7 +6290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsBetweenSpawns: 3
-  enemyToSpawn: {fileID: 4706387287153599256, guid: 666ed30ea41194b28a922b4ca1fd3ab9,
+  enemyToSpawn: {fileID: 114078703179129330, guid: 04f81ff9814844ccfa08226f8d46a3f4,
     type: 3}
 --- !u!1001 &1216612019
 PrefabInstance:
