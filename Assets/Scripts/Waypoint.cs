@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
+
+    [SerializeField] Tower towerPrefab;
+
     //ok, since this is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
     public bool isPlaceable = true;
+    public bool hasTower = false;
 
     Vector2Int gridPos;
     const int gridSize = 10;
@@ -36,7 +40,19 @@ public class Waypoint : MonoBehaviour
         //If your mouse hovers over the GameObject with the script attached, output this message
         if (Input.GetMouseButtonDown(0) && isPlaceable) //left click
         {
-            Debug.Log("Mouse clicked GameObject: " + gameObject.name);
+            if (hasTower == false)
+            {
+                hasTower = true;
+                //transform.position.x += 20;
+                Vector3 fixedPosition = transform.position;
+                fixedPosition.y -= 4;
+                Instantiate(towerPrefab, fixedPosition, Quaternion.identity);
+
+            }
+            else
+            {
+                Debug.Log("Already Tower on: " + gameObject.name);
+            }
         }
     }
 
