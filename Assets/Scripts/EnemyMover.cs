@@ -25,9 +25,9 @@ public class EnemyMover : MonoBehaviour
             transform.position = waypoint.transform.position;
             yield return new WaitForSeconds(dwellTime);
         }
-        KillEnemy();
+        SelfDestruct();
     }
-    public void KillEnemy()
+    public void SelfDestruct()
     {
         //   scoreBoard.ScoreHit(scorePerHit);
         var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
