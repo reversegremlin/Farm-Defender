@@ -49,16 +49,8 @@ public class Waypoint : MonoBehaviour
                 } else
                 {
                     Debug.Log("Not a waypoint.");
-
                 }
             }
         }
     }
-
-    //void OnMouseExit()
-    //{
-    //    //The mouse is no longer hovering over the GameObject so output this message each frame
-    //    Debug.Log("Mouse is no longer on GameObject: " + gameObject.name);
-    //}
-
 }
