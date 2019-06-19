@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-
-    [SerializeField] Tower towerPrefab;
-
     //ok, since this is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
@@ -38,20 +35,22 @@ public class Waypoint : MonoBehaviour
     void OnMouseOver()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
-        if (Input.GetMouseButtonDown(0) && isPlaceable) //left click
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hasTower == false)
+            if (isPlaceable)
             {
-                hasTower = true;
-                //transform.position.x += 20;
-                Vector3 fixedPosition = transform.position;
-                fixedPosition.y -= 4;
-                Instantiate(towerPrefab, fixedPosition, Quaternion.identity);
-
+                FindObjectOfType<TowerFactory>().AddTower(this);
             }
             else
             {
-                Debug.Log("Already Tower on: " + gameObject.name);
+                if (hasTower)
+                {
+                    Debug.Log("Tower already on that cube.");
+                } else
+                {
+                    Debug.Log("Not a waypoint.");
+
+                }
             }
         }
     }
