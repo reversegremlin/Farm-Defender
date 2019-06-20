@@ -19,7 +19,6 @@ public class EnemySpawner : MonoBehaviour
 	{
         while (true)
         {
-
             var newEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
             newEnemy.transform.parent = enemyParent;
 			yield return new WaitForSeconds(secondsBetweenSpawns);
