@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCollider : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class EnemyCollider : MonoBehaviour
     [SerializeField] int scorePerHit = 100;
     [SerializeField] int hits = 10;
     [SerializeField] ParticleSystem hitParticlePrefab;
+    [SerializeField] Text score;
+
+    int enemiesKilled = 0;
 
 
   //  ScoreBoard scoreBoard;
 
     void Start()
     {
+        score.text = enemiesKilled.ToString();
+
         AddNonTriggerBoxCollider();
      //   scoreBoard = FindObjectOfType<ScoreBoard>();
     }
@@ -33,6 +39,8 @@ public class EnemyCollider : MonoBehaviour
 
         if (hits <= 0)
         {
+            ++enemiesKilled;
+            score.text = enemiesKilled.ToString();
             KillEnemy();
         }
     }
