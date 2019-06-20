@@ -22,7 +22,22 @@ public class EnemyMover : MonoBehaviour
 
         foreach (Waypoint waypoint in path)
         {
-            transform.position = waypoint.transform.position;
+            //print("old position: " + transform.position);
+            //print("new position: " + waypoint.transform.position);
+            //if (transform.position.x > waypoint.transform.position.x)
+            //{
+            //    transform.Rotate(0, 90, 0);
+            //}
+            //else if (transform.position.z > waypoint.transform.position.z)
+            //{
+            //    transform.Rotate(0, -90, 0);
+
+            //}
+            Vector3 fixedPosition = waypoint.transform.position;
+            fixedPosition.y -= 5;
+
+           // transform.position = waypoint.transform.position;
+            transform.position = fixedPosition;
             yield return new WaitForSeconds(dwellTime);
         }
         SelfDestruct();
