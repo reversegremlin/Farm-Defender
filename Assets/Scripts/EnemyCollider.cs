@@ -11,19 +11,13 @@ public class EnemyCollider : MonoBehaviour
     [SerializeField] int scorePerHit = 100;
     [SerializeField] int hits = 10;
     [SerializeField] ParticleSystem hitParticlePrefab;
-    [SerializeField] Text score;
 
-    int enemiesKilled = 0;
+    EnemySpawner spawner;
 
-
-  //  ScoreBoard scoreBoard;
 
     void Start()
     {
-        score.text = enemiesKilled.ToString();
-
         AddNonTriggerBoxCollider();
-     //   scoreBoard = FindObjectOfType<ScoreBoard>();
     }
 
     private void AddNonTriggerBoxCollider()
@@ -39,15 +33,13 @@ public class EnemyCollider : MonoBehaviour
 
         if (hits <= 0)
         {
-            ++enemiesKilled;
-            score.text = enemiesKilled.ToString();
             KillEnemy();
+
         }
     }
 
     private void KillEnemy()
     {
-        //   scoreBoard.ScoreHit(scorePerHit);
         var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         vfx.Play();
         Destroy(vfx.gameObject, vfx.main.duration);

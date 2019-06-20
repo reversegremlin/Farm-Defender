@@ -69,9 +69,8 @@ MonoBehaviour:
     type: 3}
   parent: {fileID: 0}
   scorePerHit: 100
-  hits: 10
+  hits: 5
   hitParticlePrefab: {fileID: 2401255472433961160}
-  score: {fileID: 7083913722042274173, guid: 3076a2f01c3e148779db321a62a8afc5, type: 3}
 --- !u!114 &114078703179129330
 MonoBehaviour:
   m_ObjectHideFlags: 0
