@@ -4126,6 +4126,7 @@ MonoBehaviour:
   healthDecrement: 1
   deathParticlePrefab: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 3}
+  healthText: {fileID: 1829880297}
 --- !u!1001 &1027438082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8302,10 +8303,10 @@ RectTransform:
   m_Father: {fileID: 1349373169}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 431, y: -93}
-  m_SizeDelta: {x: 800, y: 120}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -140, y: -93}
+  m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1829880297
 MonoBehaviour:
@@ -8340,7 +8341,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1234567890
+  m_Text: 123
 --- !u!222 &1829880298
 CanvasRenderer:
   m_ObjectHideFlags: 0
