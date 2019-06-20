@@ -45,7 +45,9 @@ public class EnemyMover : MonoBehaviour
     public void SelfDestruct()
     {
         //   scoreBoard.ScoreHit(scorePerHit);
-        var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        Vector3 fixedPosition = transform.position;
+        fixedPosition.y += 10;
+        var vfx = Instantiate(deathParticlePrefab, fixedPosition, Quaternion.identity);
         vfx.Play();
         Destroy(vfx.gameObject, vfx.main.duration);
         Destroy(gameObject);
