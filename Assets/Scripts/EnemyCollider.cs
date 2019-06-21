@@ -34,10 +34,8 @@ public class EnemyCollider : MonoBehaviour
 
         if (hits <= 0)
         {
-            print("score per hit: " + scorePerHit);
             scoreBoard.ScoreHit(scorePerHit);
             KillEnemy();
-
         }
     }
 

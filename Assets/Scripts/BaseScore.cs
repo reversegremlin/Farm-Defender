@@ -5,20 +5,16 @@ using TMPro;
 
 public class BaseScore : MonoBehaviour
 {
-    private TMP_Text m_TextComponent;
+    private TMP_Text baseLife;
 
     void Awake()
     {
-        // Get a reference to the text component.
-        m_TextComponent = GetComponent<TMP_Text>();
-
-        // Change the text
-        m_TextComponent.text = "A simple line of text.";
+        baseLife = GetComponent<TMP_Text>();
     }
 
     public void SetHealth(int health)
     {
-        m_TextComponent.text = health.ToString();
+        baseLife.text = health.ToString();
     }
 
     // Start is called before the first frame update

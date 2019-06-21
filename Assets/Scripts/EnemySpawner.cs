@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [Range(0.1f, 120f)]
     [SerializeField] float secondsBetweenSpawns = 3.0f;
+    [SerializeField] int maxEnemies = 5;
     [SerializeField] EnemyMover enemyToSpawn;
     [SerializeField] Transform enemyParent;
 
@@ -31,11 +32,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
 	{
-        while (true)
+        while (maxEnemies > 1)
         {
             var newEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
             newEnemy.transform.parent = enemyParent;
 			yield return new WaitForSeconds(secondsBetweenSpawns);
+            maxEnemies--;
         }
     }
 }
