@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyCollider : MonoBehaviour
 {
@@ -12,12 +13,12 @@ public class EnemyCollider : MonoBehaviour
     [SerializeField] int hits = 10;
     [SerializeField] ParticleSystem hitParticlePrefab;
 
-    EnemySpawner spawner;
-
+    PlayerScore scoreBoard;
 
     void Start()
     {
         AddNonTriggerBoxCollider();
+        scoreBoard = FindObjectOfType<PlayerScore>();
     }
 
     private void AddNonTriggerBoxCollider()
@@ -33,6 +34,8 @@ public class EnemyCollider : MonoBehaviour
 
         if (hits <= 0)
         {
+            print("score per hit: " + scorePerHit);
+            scoreBoard.ScoreHit(scorePerHit);
             KillEnemy();
 
         }

@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ScorebBoard : MonoBehaviour
+
+public class PlayerScore : MonoBehaviour
 {
+    [SerializeField] Text scoreText;
 
     int score = 0;
-    Text scoreText;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreText = GetComponent<Text>();
         scoreText.text = score.ToString();
+        print("score: " + score);
+
     }
 
     public void ScoreHit(int enemyValue)

@@ -17,7 +17,6 @@ public class TowerFactory : MonoBehaviour
     public void AddTower(Waypoint baseWaypoint)
     {
         int numTowers = towerQueue.Count;
-        print(towerQueue.Count);
 
         if (towerCount < towerLimit)
         {

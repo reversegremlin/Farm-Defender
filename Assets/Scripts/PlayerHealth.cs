@@ -8,17 +8,19 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int health = 10;
     [SerializeField] int healthDecrement = 1;
     [SerializeField] ParticleSystem deathParticlePrefab;
-    [SerializeField] Text healthText;
+    BaseScore baseScore;
 
     private void Start()
     {
-        healthText.text = health.ToString();
+        baseScore = FindObjectOfType<BaseScore>();
+        baseScore.SetHealth(health);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         health -= healthDecrement;
-        healthText.text = health.ToString();
+        baseScore.SetHealth(health);
 
         if (health <= 0)
         {
@@ -28,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
      
     public void SelfDestruct()
     {
-        //   scoreBoard.ScoreHit(scorePerHit);
         Vector3 fixedPosition = transform.position;
         fixedPosition.y += 10;
         var vfx = Instantiate(deathParticlePrefab, fixedPosition, Quaternion.identity);
