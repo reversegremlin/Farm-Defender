@@ -27,9 +27,6 @@ public class TowerFactory : MonoBehaviour
             MoveExistingTower(baseWaypoint);
         }
     }
-
-  
-
     private void InstantiateNewTower(Waypoint baseWaypoint)
     {
         Vector3 fixedPosition = baseWaypoint.transform.position;
@@ -38,7 +35,6 @@ public class TowerFactory : MonoBehaviour
         newTower.transform.parent = towerParent;
         newTower.baseWaypoint = baseWaypoint;
         baseWaypoint.isPlaceable = false;
-        baseWaypoint.hasTower = true;
         towerCount++;
         towerQueue.Enqueue(newTower);
     }
@@ -47,11 +43,9 @@ public class TowerFactory : MonoBehaviour
     {
         var oldTower = towerQueue.Dequeue();
         oldTower.baseWaypoint.isPlaceable = true;
-        oldTower.baseWaypoint.hasTower = false;
         oldTower.baseWaypoint = newBaseWaypoint;
         Vector3 fixedPosition = newBaseWaypoint.transform.position;
         newBaseWaypoint.isPlaceable = false;
-        newBaseWaypoint.hasTower = true;
         fixedPosition.y -= 4;
         oldTower.transform.position = fixedPosition; 
         towerQueue.Enqueue(oldTower);
@@ -59,17 +53,5 @@ public class TowerFactory : MonoBehaviour
 
         // put the old tower back on the queue
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -17,7 +17,6 @@ public class PlayerHealth : MonoBehaviour
     {
         baseScore = FindObjectOfType<BaseScore>();
         baseScore.SetHealth(health);
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,9 +41,4 @@ public class PlayerHealth : MonoBehaviour
         Destroy(vfx.gameObject, vfx.main.duration);
         Destroy(gameObject);
     }
-
-    //todo: stop enemies from spawining
-    //todo: make enemies disappear
-    //todo: make chicken super
-
 }
