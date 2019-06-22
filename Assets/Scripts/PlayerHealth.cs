@@ -8,7 +8,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int health = 10;
     [SerializeField] int healthDecrement = 1;
     [SerializeField] ParticleSystem deathParticlePrefab;
+    [SerializeField] AudioClip baseHitSFX;
+
     BaseScore baseScore;
+
 
     private void Start()
     {
@@ -19,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GetComponent<AudioSource>().PlayOneShot(baseHitSFX);
+
         health -= healthDecrement;
         baseScore.SetHealth(health);
 

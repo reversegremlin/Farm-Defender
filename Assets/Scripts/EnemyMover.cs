@@ -22,17 +22,6 @@ public class EnemyMover : MonoBehaviour
 
         foreach (Waypoint waypoint in path)
         {
-            //print("old position: " + transform.position);
-            //print("new position: " + waypoint.transform.position);
-            //if (transform.position.x > waypoint.transform.position.x)
-            //{
-            //    transform.Rotate(0, 90, 0);
-            //}
-            //else if (transform.position.z > waypoint.transform.position.z)
-            //{
-            //    transform.Rotate(0, -90, 0);
-
-            //}
             Vector3 fixedPosition = waypoint.transform.position;
             fixedPosition.y -= 5;
 
@@ -44,7 +33,6 @@ public class EnemyMover : MonoBehaviour
     }
     public void SelfDestruct()
     {
-        //   scoreBoard.ScoreHit(scorePerHit);
         Vector3 fixedPosition = transform.position;
         fixedPosition.y += 10;
         var vfx = Instantiate(deathParticlePrefab, fixedPosition, Quaternion.identity);

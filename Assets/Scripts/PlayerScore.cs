@@ -14,14 +14,11 @@ public class PlayerScore : MonoBehaviour
     void Start()
     {
         scoreText.text = score.ToString();
-        print("score: " + score);
-
     }
 
     public void ScoreHit(int enemyValue)
     {
         score = score + enemyValue;
-        print(score);
         scoreText.text = score.ToString();
     }
 }
