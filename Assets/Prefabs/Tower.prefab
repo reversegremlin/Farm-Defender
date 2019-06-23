@@ -173,7 +173,7 @@ PrefabInstance:
     - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
         type: 3}
       propertyPath: TrailModule.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8395260845431918789, guid: 8238921bafd389b44921fe80cc7f1f9d,
         type: 3}
